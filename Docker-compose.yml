@@ -1,0 +1,43 @@
+version: '3' 
+services: 
+  mongo:
+    image: mongo 
+    ports:
+      - "27018:27018"
+    
+  api-gateway:
+    image: api-gateway
+    ports:
+      - "9000:3000"
+   
+  customer-service:
+    image: customer-service
+    ports:
+      - "9001:3000"
+    depends_on:
+      - mongo
+  inventory-service:
+    image: inventory-service
+    ports:
+      - "9002:3000"
+    depends_on:
+      - mongo
+  menu-service:
+    image: menu-service
+    ports:
+      - "9003:3000"
+    depends_on:
+      - mongo
+  order-service:
+    image: order-service
+    ports:
+      - "9005:3000"
+    depends_on:
+      - mongo
+  payment-service:
+    image: payment-service
+    ports:
+      - "9004:3000"
+    depends_on:
+      - mongo
+  
