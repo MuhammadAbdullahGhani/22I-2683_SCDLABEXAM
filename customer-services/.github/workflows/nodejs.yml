@@ -28,7 +28,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-#from docker docs i have copied
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
